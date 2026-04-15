@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 11 13 18;
+  --surface: 18 21 28;
+  --border: 32 38 50;
+  --muted: 110 120 138;
+  --text: 234 238 245;
+  --accent: 96 165 250;
+  --good: 52 211 153;
+  --warn: 251 191 36;
+  --bad: 248 113 113;
+  --amber: 245 158 11;
+}
+
+html, body {
+  background: rgb(var(--bg));
+  color: rgb(var(--text));
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono { font-family: var(--font-mono), 'IBM Plex Mono', monospace; }
+
+.card {
+  @apply bg-surface border border-border rounded-lg;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium transition;
+}
+.btn-primary {
+  @apply bg-accent text-bg hover:opacity-90;
+}
+.btn-secondary {
+  @apply bg-surface border border-border text-text hover:border-accent;
+}
+.btn-danger {
+  @apply bg-bad/10 border border-bad/40 text-bad hover:bg-bad/20;
+}
+
+.input {
+  @apply w-full bg-bg border border-border rounded-md px-3 py-2 text-sm
+         focus:outline-none focus:border-accent placeholder:text-muted;
+}
+
+.label {
+  @apply block text-xs uppercase tracking-wider text-muted mb-1 font-mono;
+}
+
+.badge {
+  @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-mono uppercase tracking-wider;
+}
+.badge-good { @apply bg-good/15 text-good; }
+.badge-warn { @apply bg-warn/15 text-warn; }
+.badge-bad  { @apply bg-bad/15 text-bad; }
+.badge-info { @apply bg-accent/15 text-accent; }
+.badge-amber { @apply bg-amber/15 text-amber; }
+
+.score-pill {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded font-mono text-sm;
+}
+
+table.data {
+  @apply w-full text-sm;
+}
+table.data th {
+  @apply text-left text-xs uppercase tracking-wider text-muted font-mono py-2 px-3 border-b border-border;
+}
+table.data td {
+  @apply py-3 px-3 border-b border-border/60 align-middle;
+}
+table.data tr:hover td {
+  @apply bg-bg/40;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+.pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}

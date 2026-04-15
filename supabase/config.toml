@@ -1,0 +1,22 @@
+project_id = "carscout"
+
+[functions.scout-agent]
+verify_jwt = false
+
+[functions.analyse-agent]
+verify_jwt = false
+
+[functions.alert-agent]
+verify_jwt = false
+
+[functions.ad-agent]
+verify_jwt = true
+
+[functions.market-agent]
+verify_jwt = false
+
+[functions.create-checkout-session]
+verify_jwt = true
+
+[functions.stripe-webhook]
+verify_jwt = false
