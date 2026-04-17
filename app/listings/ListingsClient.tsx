@@ -40,7 +40,7 @@ export default function ListingsClient({
   initialRows,
   filters,
 }: {
-  initialRows: Row[];
+  initialRows: unknown[];
   filters: Filters;
 }) {
   const router = useRouter();
@@ -57,7 +57,7 @@ export default function ListingsClient({
   }
 
   // client-side filter for fields the SQL didn't filter on
-  const rows = initialRows.filter((r) => {
+  const rows = (initialRows as Row[]).filter((r) => {
     const a = r.analyses?.[0];
     if (reco && a?.recommendation !== reco) return false;
     if (minScore && (a?.total_score ?? -1) < Number(minScore)) return false;
