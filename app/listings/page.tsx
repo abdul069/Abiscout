@@ -37,7 +37,7 @@ export default async function ListingsPage(props: {
 
   return (
     <DashboardLayout user={user} title="Listings">
-      <ListingsClient initialRows={data ?? []} filters={sp} />
+      <ListingsClient initialRows={(data as unknown[]) ?? []} filters={sp} />
     </DashboardLayout>
   );
 }
