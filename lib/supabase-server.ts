@@ -10,7 +10,7 @@ export async function createSupabaseServerClient() {
       db: { schema: 'carscout' },
       cookies: {
         getAll: () => cookieStore.getAll(),
-        setAll: (toSet) => {
+        setAll: (toSet: { name: string; value: string; options?: Record<string, unknown> }[]) => {
           try {
             for (const { name, value, options } of toSet) {
               cookieStore.set(name, value, options);
