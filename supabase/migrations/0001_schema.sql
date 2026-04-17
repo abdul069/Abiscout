@@ -7,6 +7,12 @@ create schema if not exists carscout;
 
 -- Allow Supabase auth + service roles to use the schema.
 grant usage on schema carscout to anon, authenticated, service_role;
+grant all on all tables in schema carscout to anon, authenticated, service_role;
+grant all on all sequences in schema carscout to anon, authenticated, service_role;
+grant all on all routines in schema carscout to anon, authenticated, service_role;
+alter default privileges in schema carscout grant all on tables to anon, authenticated, service_role;
+alter default privileges in schema carscout grant all on sequences to anon, authenticated, service_role;
+alter default privileges in schema carscout grant all on routines to anon, authenticated, service_role;
 
 -- =====================================================================
 -- Tables
